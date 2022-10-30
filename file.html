@@ -2,14 +2,33 @@
 <html>
 <head>
   <title>Rock Paper Scissors</title>
+  <link href="./style.css" rel="stylesheet">
 </head>
 <body>
+  <header class="background">
+  <h1 class="rps-headWord">Rock Paper Scissors</h1>
+  <h2 class="weapon-selection">Choose your Weapon</h2>
+  <h2 class="first-5">First to 5 Wins!</h2>
+
+
   <div style="margin-bottom: 20px">
     <input type="button" value="rock"></input>
     <input type="button" value="paper"></input>
     <input type="button" value="scissors"></input>
   </div>
-  <div id="result"></div>
+  <div class="player-comp-scores">
+    <div class="player-score">Player Score</div>
+    <div class="'comp-score">Computer Score</div>
+  </div>
+  <div class="box-player-comp">
+    <div class="box-player"></div>
+    <div class="box-comp"></div>
+  </div>
+  
+  <div id="box">
+    <div id="result"></div>
+  </div>
   <script src="rps.js"></script>
+</header>
 </body>
 </html>

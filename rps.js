@@ -1,6 +1,10 @@
 let playerScore = 0
 let computerScore = 0
 const buttons = document.querySelectorAll('input')
+const playerPoint = document.querySelector('.box-player')
+const computerPoint = document.querySelector('.box-comp')
+const result = document.querySelector('#result')
+
 
 function computerPlay() {
     let choices = ['rock', 'paper', 'scissors']
@@ -17,37 +21,36 @@ function playRound(playerSelection) {
     let computerSelection = computerPlay()
     let result = ""
 
-    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
-        (playerSelection == 'scissors' && computerSelection == 'paper') ||
-        (playerSelection == 'paper' && computerSelection == 'rock')) {
+    if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'rock')) {
         
-        playerScore += 1
-        result = ('You win! ' + playerSelection + ' beats ' + computerSelection
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        playerPoint.innerHTML = playerScore += 1;
+        result = ('You win! ' + playerSelection + ' beats ' + computerSelection)
 
-        if (playerScore == 5) {
+        if (playerScore === 5) {
             result += '<br><br>You won the game! Reload the page to play again'
             disableButtons()
         }
     }
-    else if (playerSelection == computerSelection) {
-        result = ('It\'s a tie. You both chose ' + playerSelection
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+    else if (playerSelection === computerSelection) {
+        result = ('It\'s a tie. You both chose ' + playerSelection)
     }
     else {
-        computerScore += 1
-        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        computerPoint.innerHTML = computerScore += 1;
+        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection)
 
-        if (computerScore == 5) {
+        if (computerScore === 5) {
             result += '<br><br>I won the game! Reload the page to play again'
             disableButtons()
         }
     }
+    
 
     document.getElementById('result').innerHTML = result
     return
 }
+
 
 buttons.forEach(button =>{
     button.addEventListener('click', function(){
